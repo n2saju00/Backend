@@ -6,7 +6,8 @@ Sen sijaan, että jokaiselle toiminnolle olisi oma PHP tiedosto, samaan dataan l
 Joissain tapauksissa laiminlyödään tietosuojakäytäntöjä kertomalla tarkempia tietoja virheestä requestiin vastattaessa.
 
 # Esivaatimukset
-Codessa testaamiseen PHP Server extenionin portti 3001 -> serve project.
+Visual Studio Codella testaamiseen PHP Server -extension.
+Laajennuksen asetuksista portiksi 3001 -> Serve Project
 
 # Käyttö
 Kaikki toiminnot (ja joitain virheellisten tapahtumien käsittelyjä) on exportattu postman collection tiedostoon jonka saa importattua suoraan testaamisen helpottamiseksi.
