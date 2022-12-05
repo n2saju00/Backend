@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "08005294-68a7-4709-a96c-3e828863bacd",
+		"name": "Backend - tietokantaohjelmointi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24361077"
+	},
+	"item": [
+		{
+			"name": "get session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=loginSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "loginSession"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(error) create user (on jo olemassa)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "fname",
+							"value": "testiF",
+							"type": "text"
+						},
+						{
+							"key": "lname",
+							"value": "testiL",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "testiA",
+							"type": "text"
+						},
+						{
+							"key": "postalcode",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "testiC",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testtest@testi.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "1234567890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user (onnistuu)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test1",
+							"type": "text"
+						},
+						{
+							"key": "fname",
+							"value": "testiF",
+							"type": "text"
+						},
+						{
+							"key": "lname",
+							"value": "testiL",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "testiA",
+							"type": "text"
+						},
+						{
+							"key": "postalcode",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "testiC",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testtest1@testi.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "1234567890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(error) create user (missing info)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "fname",
+							"value": "testiF",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "lname",
+							"value": "testiL",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "testiA",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "postalcode",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "testiC",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testtest@testi.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "1234567890",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successful login (käyttäjä on admin myöhempiä requesteja varten)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "login"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user data (jos session data täsmää requestin dataan)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=getUser&userName=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getUser"
+						},
+						{
+							"key": "userName",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products (listataan tuotteet, vain active = true)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProducts"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products (tuotteiden filtteröinti kategorian perusteella)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProducts&categoriesToGet=1,3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProducts"
+						},
+						{
+							"key": "categoriesToGet",
+							"value": "1,3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products (tuotteiden filtteröinti hakusanan perusteella)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProducts&searchTerm=tuote4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProducts"
+						},
+						{
+							"key": "searchTerm",
+							"value": "tuote4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products (tuotteiden filtteröinti hakusanan ja kategorian perusteella)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProducts&searchTerm=tuote2&categoriesToGet=1,3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProducts"
+						},
+						{
+							"key": "searchTerm",
+							"value": "tuote2"
+						},
+						{
+							"key": "categoriesToGet",
+							"value": "1,3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get categories (tuoteryhmien haku)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getCategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getCategories"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product details (tietyn tuotteen tietojen haku)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProductDetails&productId=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProductDetails"
+						},
+						{
+							"key": "productId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order (orderId voidaan generoida esim antamalla muita tietoja tilauksesta)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orderId",
+							"value": "U1O8007001",
+							"type": "text"
+						},
+						{
+							"key": "customerId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "orderItems",
+							"value": "1,2,3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/order.php?action=create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"order.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "create"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel order (jos session data täsmää requestin ja valitun tilauksen dataan)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orderId",
+							"value": "U1O8007001",
+							"type": "text"
+						},
+						{
+							"key": "customerId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/order.php?action=cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"order.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "cancel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(error) cancel order (lähetetyn tilauksen peruminen)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orderId",
+							"value": "U1O8007002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/order.php?action=cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"order.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "cancel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tuotteen lisääminen (admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "categoryId",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "productName",
+							"value": "tuote8",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "12.30",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "lisätyn tuotteen kuvaus",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/admin.php?action=addProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "addProduct"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tuoteryhmän lisääminen (admin, ei salli duplikaatteja)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "categoryName",
+							"value": "uusi_kategoria",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/admin.php?action=addCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "addCategory"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
