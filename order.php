@@ -4,8 +4,7 @@ require_once('./include/functions.php');
 
 $db = openSQLite();
 
-
-if (isset($_GET["action"])) {
+if (isset($_GET["action"]) && isset($_SESSION['username'])) {
     $action = $_GET["action"];
 
     switch ($action) {
@@ -107,6 +106,6 @@ if (isset($_GET["action"])) {
     }
 } else {
     http_response_code(400);
-    echo "No action";
+    echo "No action or missing session data.";
     return;
 }

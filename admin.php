@@ -86,5 +86,11 @@
                     break;
                 }
             }
+       } else {
+            http_response_code(401);
+            echo "Unauthorized. No permission to perform action.";
        }
+    } else {
+        http_response_code(401);
+        echo "Unauthorized. No session data. Please login first.";
     }

@@ -49,8 +49,6 @@ if($err != 0) {
         try {
             executeInsert($db, $sql);
             echo json_encode(['Account creation success', true, 'accountCreated']);     //oma formaatti virheelle, otettu verkkokauppaprojektin backendistä. Kolmatta arvoa helppo käyttää kielitiedoston kanssa reactin puolella
-            session_start();
-            $_SESSION['username'] = $username;
             http_response_code(200);
         } catch (Exception $e) {
             echo "Failed";

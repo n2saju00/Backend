@@ -36,8 +36,10 @@
 				session_start();
 				if (isset($_SESSION['username'])) {
 					http_response_code(200);
-					echo $_SESSION['username'];
+					echo "Logged in through session: " . $_SESSION['username'];
 					return;
+				} else {
+					echo "Not logged in";
 				}
 				break;
                   
