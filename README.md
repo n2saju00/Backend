@@ -2,7 +2,7 @@
 
 Tietokantaohjelmointi -kurssin harjoitustyö. Verkkokaupalle tarkoitetun backendin esimerkkitoimintoja. 
 
-Sen sijaan, että jokaiselle toiminnolle olisi oma PHP tiedosto, samaan dataan liittyviä toimintoja on laitettu samaan tiedostoon käyttäen switchiä (requestissa action -parametri)
+Sen sijaan, että jokaiselle toiminnolle olisi oma PHP tiedosto, samaan dataan liittyviä toimintoja on laitettu samaan tiedostoon käyttäen switchiä (requestissa action -parametri).
 Joissain tapauksissa laiminlyödään tietosuojakäytäntöjä kertomalla tarkempia tietoja virheestä requestiin vastattaessa.
 
 # Esivaatimukset
