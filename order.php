@@ -4,6 +4,8 @@ require_once('./include/functions.php');
 
 $db = openSQLite();
 
+session_start();
+
 if (isset($_GET["action"]) && isset($_SESSION['username'])) {
     $action = $_GET["action"];
 
@@ -75,7 +77,6 @@ if (isset($_GET["action"]) && isset($_SESSION['username'])) {
                 $getOrderCustomerName = "select username from USER where (customerId = '" . $getOrderCustomerId[0]["customerId"] . "')";
                 $getOrderCustomerName = selectAsJson($db, $getOrderCustomerName);
 
-                session_start();
                 if ($getOrderCustomerName[0]["username"] == $_SESSION['username']) {
 
                     $getOrderStatus = "select orderStatus from ORDERS where (orderId = '" . $_POST['orderId'] . "')";
@@ -96,6 +97,9 @@ if (isset($_GET["action"]) && isset($_SESSION['username'])) {
                         echo "Can't cancel because the order has already been shipped";
                         return;
                     }
+                } else {
+                    http_response_code(401);
+                    echo "Unauthorized";
                 }
             } else {
                 http_response_code(400);
