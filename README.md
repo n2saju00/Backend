@@ -7,6 +7,7 @@ Joissain tapauksissa laiminlyödään tietosuojakäytäntöjä kertomalla tarkem
 
 # Esivaatimukset
 Postman (import Backend - tietokantaohjelmointi.postman_collection.json)
+
 Visual Studio Codella testaamiseen PHP Server -extension.
 Laajennuksen asetuksista portiksi 3001 -> Serve Project
 
