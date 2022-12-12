@@ -38,5 +38,4 @@ function checkForFunnyStuff($string): bool
 	} else {
 		return false;
 	}
-
 }
