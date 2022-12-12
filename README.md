@@ -17,3 +17,7 @@ Komennot postmanissa tarkoitettu ajettavaksi järjestyksessä, koska esimerkiksi
 Tottakai voi kokeilla esimerkiksi admin komentoja kun ollaan kirjautuneena esimerkiksi juuri luodulle tilille.
 
 Mukana olevassa tietokannassa esimerkkidata. Tietokannan voi nollata tarvittaessa mukana tulevilla SQL komennoilla
+
+# Toiminnot
+
+![Functions](https://i.imgur.com/Ved2OCF.png)
