@@ -10,7 +10,10 @@ $err = 0;
 foreach ($requiredInfo as $key) {
     if(!isset($_POST[$key])) {
         $err++;
-    } else if (checkForFunnyStuff($_POST[$key])) {
+    } else if (
+        checkForFunnyStuff($_POST[$key]) &&
+        $key != "password"                      //sallitaan erikoismerkit salasanassa
+        ) {
         echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
         http_response_code(400);
         return;
@@ -55,8 +58,8 @@ if($err != 0) {
             echo json_encode(['Account creation success', true, 'accountCreated']);     //oma formaatti virheelle, otettu verkkokauppaprojektin backendistä. Kolmatta arvoa helppo käyttää kielitiedoston kanssa reactin puolella
             http_response_code(200);
         } catch (Exception $e) {
-            echo "Failed";
-            print_r($e);
+            echo "Account creation failed";
+            http_response_code(400);
         }
     }
 }

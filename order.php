@@ -63,6 +63,7 @@ if (isset($_GET["action"]) && isset($_SESSION['username'])) {
                     try {
                         executeInsert($db, $sql_details);
                     } catch (Exception $e) {
+                        http_response_code(400);
                         echo "Failed";
                         print_r($e);
                         return;
@@ -73,7 +74,9 @@ if (isset($_GET["action"]) && isset($_SESSION['username'])) {
                     executeInsert($db, $sql);
                     echo "Order placed";
                     http_response_code(200);
+                    return;
                 } catch (Exception $e) {
+                    http_response_code(400);
                     echo "Failed";
                     print_r($e);
                     return;
@@ -101,9 +104,11 @@ if (isset($_GET["action"]) && isset($_SESSION['username'])) {
                     if ($getOrderStatus[0]["orderStatus"] != 'shipped') {
                         $sql = "UPDATE ORDERS SET orderStatus = 'cancelled' WHERE orderId = '" . $_POST['orderId'] . "'";
                         try {
+                            http_response_code(200);
                             executeInsert($db, $sql);
                             echo "Order cancelled";
                         } catch (Exception $e) {
+                            http_response_code(400);
                             echo "Failed";
                             print_r($e);
                             return;

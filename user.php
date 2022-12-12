@@ -6,6 +6,18 @@
 
 	foreach ($_GET as $key) {
 		if (checkForFunnyStuff($key)) {
+			echo $key;
+			echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
+			http_response_code(400);
+			return;
+		}
+	}
+
+	foreach ($_POST as $key) {
+		if (
+			checkForFunnyStuff($key) &&
+			$key != $_POST["password"]	//salasanassa saa olla erikoismerkkejä, enkoodataan myöhemmin
+			) {
 			echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
 			http_response_code(400);
 			return;
@@ -20,8 +32,8 @@
             	if (isset($_GET["userName"])) {
 					session_start();
 					if ($_GET["userName"] == $_SESSION["username"]) {
-           			$query = "SELECT username, password, fname, lname, address, postalcode, city, email, phone FROM USER";
-                  	$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
+						$query = "SELECT username, password, fname, lname, address, postalcode, city, email, phone FROM USER";
+						$query = $query . " WHERE username = '" . url_encode($_SESSION["username"]) . "'";
 					} else {
 						http_response_code(403);
 						echo "Forbidden, provided username doesn't match session data";
@@ -48,6 +60,7 @@
 					return;
 				} else {
 					echo "Not logged in";
+					return;
 				}
 				break;
                   
@@ -63,7 +76,7 @@
 					$hash = selectAsJson($db, $query);
 					if (count($hash) == 1) {
 						$hash = $hash[0]["password"];
-						if (password_verify($_POST['password'], $hash)) {
+						if (password_verify(urlencode($_POST['password']), $hash)) {
 							session_start();
 							$_SESSION['username'] = $_POST["username"];
 							$data["username"] = $_POST["username"];
@@ -72,14 +85,19 @@
 							echo $data;
 							http_response_code(200);
 						} else {
-							echo header('HTTP/1.1 500 Internal server Error');
-							echo "Internal server error";
+							http_response_code(401);
+							echo "Invalid username or password";
+							return;
 						}
 					} else {
+						http_response_code(401);
 						echo "Invalid username or password";
+						return;
 					}
 				} else {
+					http_response_code(400);
 					echo "Login failed, missing information";
+					return;
 				}
 				break;
 			case "logout":
@@ -89,6 +107,8 @@
 				echo "Logged out";
         } 
     } else {
+		http_response_code(200);
 		echo "no action";
+		return;
 	}
 ?>
