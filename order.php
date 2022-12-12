@@ -6,6 +6,22 @@ $db = openSQLite();
 
 session_start();
 
+foreach ($_GET as $key) {
+    if (checkForFunnyStuff($key)) {
+        echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
+        http_response_code(400);
+        return;
+    }
+}
+
+foreach ($_POST as $key) {
+    if (checkForFunnyStuff($key)) {
+        echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
+        http_response_code(400);
+        return;
+    }
+}
+
 if (isset($_GET["action"]) && isset($_SESSION['username'])) {
     $action = $_GET["action"];
 

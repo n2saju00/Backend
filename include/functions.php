@@ -29,3 +29,14 @@ function returnError( PDOException $pdoex ): void
 	echo json_encode( $error );
 	exit();
 }
+
+function checkForFunnyStuff($string): bool
+{
+    if (preg_match('/[\'^£$%&*()}{#~?><|=_+¬-]/', $string))
+	{
+		return true;
+	} else {
+		return false;
+	}
+
+}

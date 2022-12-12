@@ -8,6 +8,13 @@
 
     if (isset($_SESSION["username"])) {
 
+
+        if (checkForFunnyStuff($_SESSION["username"])) {
+            echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
+            http_response_code(400);
+            return;
+        }
+
         $getAdminLevel = "select level from ADMIN where (username = '" . $_SESSION["username"] . "')";
         $getAdminLevel = selectAsJson($db, $getAdminLevel);
 

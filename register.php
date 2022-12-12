@@ -10,6 +10,10 @@ $err = 0;
 foreach ($requiredInfo as $key) {
     if(!isset($_POST[$key])) {
         $err++;
+    } else if (checkForFunnyStuff($_POST[$key])) {
+        echo json_encode(["Special characters are not allowed", false, 'specialCharError']);
+        http_response_code(400);
+        return;
     }
 }
 

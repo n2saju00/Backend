@@ -7,35 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "get session",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "http://localhost:3001/user.php?action=loginSession",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"user.php"
-					],
-					"query": [
-						{
-							"key": "action",
-							"value": "loginSession"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "(error) create user (on jo olemassa)",
 			"request": {
 				"method": "POST",
@@ -247,6 +218,133 @@
 			"response": []
 		},
 		{
+			"name": "successful login (kirjaudutaan juuri luodulle tilille)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "login"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get session (haetaan käyttäjänimi sessionista)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=loginSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "loginSession"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout (kirjaudutaan ulos)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "logout"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get session (tarkistetaan että uloskirjautuminen onnistuu)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=loginSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "loginSession"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "successful login (käyttäjä on admin myöhempiä requesteja varten)",
 			"request": {
 				"method": "POST",
@@ -287,6 +385,35 @@
 			"response": []
 		},
 		{
+			"name": "get session (tarkistetaan että kirjautuminen onnistui)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=loginSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "loginSession"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get user data (jos session data täsmää requestin dataan)",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -316,6 +443,42 @@
 						{
 							"key": "userName",
 							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(error) get user data (session data ei täsmää requestin dataan)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/user.php?action=getUser&userName=test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getUser"
+						},
+						{
+							"key": "userName",
+							"value": "test1"
 						}
 					]
 				}
@@ -468,16 +631,9 @@
 		},
 		{
 			"name": "get categories (tuoteryhmien haku)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
 				"url": {
 					"raw": "http://localhost:3001/getData.php?action=getCategories",
 					"protocol": "http",
@@ -630,6 +786,11 @@
 						{
 							"key": "orderId",
 							"value": "U1O8007002",
+							"type": "text"
+						},
+						{
+							"key": "customerId",
+							"value": "1",
 							"type": "text"
 						}
 					]
