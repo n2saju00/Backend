@@ -10,9 +10,7 @@ Postman
 
 Visual Studio Code
 
-PHP Server -extension
-
-    -Laajennuksen asetuksista portiksi 3001 -> Serve Project.
+PHP Server -extension (Laajennuksen asetuksista portiksi 3001 -> Serve Project)
 
 # Käyttö
 Kaikki toiminnot (ja joitain virheellisten tapahtumien käsittelyjä) on exportattu postman collection tiedostoon jonka saa importattua suoraan testaamisen helpottamiseksi. (import 'Backend - tietokantaohjelmointi.postman_collection.json')
