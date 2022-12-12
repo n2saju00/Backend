@@ -16,7 +16,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "test",
+							"value": "admin",
 							"type": "text"
 						},
 						{
@@ -85,7 +85,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "test1",
+							"value": "test_created",
 							"type": "text"
 						},
 						{
@@ -227,7 +227,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "test1",
+							"value": "test_created",
 							"type": "text"
 						},
 						{
@@ -354,7 +354,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "test",
+							"value": "admin",
 							"type": "text"
 						},
 						{
@@ -426,7 +426,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://localhost:3001/user.php?action=getUser&userName=test",
+					"raw": "http://localhost:3001/user.php?action=getUser&userName=admin",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -442,7 +442,7 @@
 						},
 						{
 							"key": "userName",
-							"value": "test"
+							"value": "admin"
 						}
 					]
 				}
@@ -864,6 +864,42 @@
 						{
 							"key": "action",
 							"value": "addProduct"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product details (tarkistetaan, että tuote meni tietokantaan)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/getData.php?action=getProducts&searchTerm=tuote8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getData.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "getProducts"
+						},
+						{
+							"key": "searchTerm",
+							"value": "tuote8"
 						}
 					]
 				}

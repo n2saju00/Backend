@@ -32,7 +32,7 @@ function returnError( PDOException $pdoex ): void
 
 function checkForFunnyStuff($string): bool
 {
-    if (preg_match('/[\'^£$%&*()}{#~?><|=_+¬-]/', $string))
+    if (preg_match('/[\'^£$%&*()}{#~?><|=+¬-]/', $string))
 	{
 		return true;
 	} else {

@@ -66,6 +66,6 @@ INSERT INTO PRODUCT VALUES('3','2','tuote3','18.00','tuotteen 3 kuvaus', datetim
 INSERT INTO PRODUCT VALUES('4','1','tuote4','11.10','tuotteen 4 kuvaus', datetime(), true);
 
 
-INSERT INTO USER(customerId,username,password,fname,lname,phone,email,address,city,stateProvince,postalcode) VALUES('1','test','$2y$10$tqh9JXyfZAZd1YVxr6ieFO2kw.iy7Hw4CeaDJe.bk3UAvqoyv9Ooa','testiF','testiL','1234567890','testtest@testi.com','testiA','testiC','NULL','12345');
+INSERT INTO USER(customerId,username,password,fname,lname,phone,email,address,city,stateProvince,postalcode) VALUES('1','admin','$2y$10$tqh9JXyfZAZd1YVxr6ieFO2kw.iy7Hw4CeaDJe.bk3UAvqoyv9Ooa','testiF','testiL','1234567890','testtest@testi.com','testiA','testiC','NULL','12345');
 INSERT INTO ORDERS(orderId,customerId,orderStatus,orderDate,shippedDate) VALUES('U1O8007002','1','shipped','2022-12-05 18:22:33','2022-12-05 18:22:33');
-INSERT INTO ADMIN(username,level) VALUES('test','3');
+INSERT INTO ADMIN(username,level) VALUES('admin','3');

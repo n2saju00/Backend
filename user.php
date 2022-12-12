@@ -33,7 +33,7 @@
 					session_start();
 					if ($_GET["userName"] == $_SESSION["username"]) {
 						$query = "SELECT username, password, fname, lname, address, postalcode, city, email, phone FROM USER";
-						$query = $query . " WHERE username = '" . url_encode($_SESSION["username"]) . "'";
+						$query = $query . " WHERE username = '" . urlencode($_SESSION["username"]) . "'";
 					} else {
 						http_response_code(403);
 						echo "Forbidden, provided username doesn't match session data";
