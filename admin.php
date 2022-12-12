@@ -41,7 +41,7 @@
                             $sql .= $_POST["active"] . "')";
                             try {
                                 executeInsert($db, $sql);
-                                echo "Product added";
+                                echo "Product added: " . $_POST["productName"];
                                 http_response_code(200);
                             } catch (Exception $e) {
                                 echo "Failed";
