@@ -7,7 +7,7 @@ Joissain tapauksissa laiminlyödään tietosuojakäytäntöjä kertomalla tarkem
 
 # Esivaatimukset
 Visual Studio Codella testaamiseen PHP Server -extension.
-Laajennuksen asetuksista portiksi 3000 -> Serve Project
+Laajennuksen asetuksista portiksi 3001 -> Serve Project
 
 # Käyttö
 Kaikki toiminnot (ja joitain virheellisten tapahtumien käsittelyjä) on exportattu postman collection tiedostoon jonka saa importattua suoraan testaamisen helpottamiseksi.
